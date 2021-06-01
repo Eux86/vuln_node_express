@@ -15,4 +15,10 @@ jobs:
           node-version: 14.x
       - name: Install dependencies
         run: npm clean-install
+      - name: run vuln_express
+        run: nohup npm run start & 
+      - name: run HawkScan
+        uses: stackhawk/hawkscan-action@v1.2.1
+        with: 
+          apiKey: ${{ sectets.HAWK_API_KEY }}
         
